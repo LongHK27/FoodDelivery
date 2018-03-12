@@ -50,12 +50,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\Auditable.cs" />
+    <Compile Include="Abstract\IAuditable.cs" />
+    <Compile Include="Models\APPLICATION_USER.cs" />
+    <Compile Include="Models\IDENTITY_ROLE.cs" />
+    <Compile Include="Models\IDENTITY_USER_CLAIMS.cs" />
+    <Compile Include="Models\IDENTITY_USER_ROLE.cs" />
+    <Compile Include="Models\MEAL.cs" />
+    <Compile Include="Models\MEAL_CATEGORIES.cs" />
+    <Compile Include="Models\MEAL_PROMOTION.cs" />
+    <Compile Include="Models\ORDER.cs" />
+    <Compile Include="Models\ORDER_PROMOTION.cs" />
+    <Compile Include="Models\ORDER_DETAIL.cs" />
+    <Compile Include="Models\RESTAURANT.cs" />
+    <Compile Include="Models\SIDE_DISH.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
