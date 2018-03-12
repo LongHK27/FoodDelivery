@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FoodDelivery.Model.Models
 {
-    [Table("ORDER_PROMOTIONs")]
+    [Table("ORDER_PROMOTION")]
     public class ORDER_PROMOTION : Auditable
     {
         [Key]
@@ -34,6 +34,6 @@ namespace FoodDelivery.Model.Models
         public string RestaurantId { get; set; }
 
         [ForeignKey("RestaurantId")]
-        public virtual RESTAURANT RESTAURANTs { get; set; }
+        public virtual RESTAURANT RESTAURANT { get; set; }
     }
 }

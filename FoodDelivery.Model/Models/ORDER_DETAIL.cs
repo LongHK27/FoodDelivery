@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FoodDelivery.Model.Models
 {
-    [Table("ORDER_DETAILs")]
+    [Table("ORDER_DETAIL")]
     public class ORDER_DETAIL
     {
         [Key]

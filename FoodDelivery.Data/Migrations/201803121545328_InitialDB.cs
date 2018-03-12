@@ -8,7 +8,7 @@ namespace FoodDelivery.Data.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.APPLICATION_USERs",
+                "dbo.APPLICATION_USER",
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 64, fixedLength: true),
@@ -25,7 +25,7 @@ namespace FoodDelivery.Data.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.IDENTITY_ROLEs",
+                "dbo.IDENTITY_ROLE",
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 64, fixedLength: true),
@@ -34,7 +34,7 @@ namespace FoodDelivery.Data.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.IDENTITY_USER_CLAIMSs",
+                "dbo.IDENTITY_USER_CLAIMS",
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 64, fixedLength: true),
@@ -43,24 +43,24 @@ namespace FoodDelivery.Data.Migrations
                         ApplicationId = c.String(maxLength: 64, fixedLength: true),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.APPLICATION_USERs", t => t.ApplicationId)
+                .ForeignKey("dbo.APPLICATION_USER", t => t.ApplicationId)
                 .Index(t => t.ApplicationId);
             
             CreateTable(
-                "dbo.IDENTITY_USER_ROLEs",
+                "dbo.IDENTITY_USER_ROLE",
                 c => new
                     {
                         IdentityRoleId = c.String(nullable: false, maxLength: 64, fixedLength: true),
                         ApplicationId = c.String(nullable: false, maxLength: 64, fixedLength: true),
                     })
                 .PrimaryKey(t => new { t.IdentityRoleId, t.ApplicationId })
-                .ForeignKey("dbo.APPLICATION_USERs", t => t.ApplicationId, cascadeDelete: true)
-                .ForeignKey("dbo.IDENTITY_ROLEs", t => t.IdentityRoleId, cascadeDelete: true)
+                .ForeignKey("dbo.APPLICATION_USER", t => t.ApplicationId, cascadeDelete: true)
+                .ForeignKey("dbo.IDENTITY_ROLE", t => t.IdentityRoleId, cascadeDelete: true)
                 .Index(t => t.IdentityRoleId)
                 .Index(t => t.ApplicationId);
             
             CreateTable(
-                "dbo.MEAL_CATEGORIESs",
+                "dbo.MEAL_CATEGORIES",
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 64, fixedLength: true),
@@ -76,7 +76,7 @@ namespace FoodDelivery.Data.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.MEAL_PROMOTIONs",
+                "dbo.MEAL_PROMOTION",
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 64, fixedLength: true),
@@ -96,13 +96,13 @@ namespace FoodDelivery.Data.Migrations
                         Description = c.String(maxLength: 2000),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.MEALs", t => t.MealId)
-                .ForeignKey("dbo.RESTAURANTs", t => t.RestaurantId)
+                .ForeignKey("dbo.MEAL", t => t.MealId)
+                .ForeignKey("dbo.RESTAURANT", t => t.RestaurantId)
                 .Index(t => t.RestaurantId)
                 .Index(t => t.MealId);
             
             CreateTable(
-                "dbo.MEALs",
+                "dbo.MEAL",
                 c => new
                     {
                         RestaurantId = c.String(maxLength: 64, fixedLength: true),
@@ -121,13 +121,13 @@ namespace FoodDelivery.Data.Migrations
                         Description = c.String(maxLength: 2000),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.MEAL_CATEGORIESs", t => t.MealCategoryId)
-                .ForeignKey("dbo.RESTAURANTs", t => t.RestaurantId)
+                .ForeignKey("dbo.MEAL_CATEGORIES", t => t.MealCategoryId)
+                .ForeignKey("dbo.RESTAURANT", t => t.RestaurantId)
                 .Index(t => t.RestaurantId)
                 .Index(t => t.MealCategoryId);
             
             CreateTable(
-                "dbo.RESTAURANTs",
+                "dbo.RESTAURANT",
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 64, fixedLength: true),
@@ -146,7 +146,7 @@ namespace FoodDelivery.Data.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.ORDER_DETAILs",
+                "dbo.ORDER_DETAIL",
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 64, fixedLength: true),
@@ -157,15 +157,15 @@ namespace FoodDelivery.Data.Migrations
                         SideDishId = c.String(maxLength: 64, fixedLength: true),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.MEALs", t => t.MealId)
-                .ForeignKey("dbo.ORDERs", t => t.OrderId)
-                .ForeignKey("dbo.SIDE_DISHs", t => t.SideDishId)
+                .ForeignKey("dbo.MEAL", t => t.MealId)
+                .ForeignKey("dbo.ORDER", t => t.OrderId)
+                .ForeignKey("dbo.SIDE_DISH", t => t.SideDishId)
                 .Index(t => t.OrderId)
                 .Index(t => t.MealId)
                 .Index(t => t.SideDishId);
             
             CreateTable(
-                "dbo.ORDERs",
+                "dbo.ORDER",
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 64, fixedLength: true),
@@ -184,13 +184,13 @@ namespace FoodDelivery.Data.Migrations
                         RestaurantId = c.String(maxLength: 64, fixedLength: true),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.APPLICATION_USERs", t => t.UserId)
-                .ForeignKey("dbo.RESTAURANTs", t => t.RestaurantId)
+                .ForeignKey("dbo.APPLICATION_USER", t => t.UserId)
+                .ForeignKey("dbo.RESTAURANT", t => t.RestaurantId)
                 .Index(t => t.UserId)
                 .Index(t => t.RestaurantId);
             
             CreateTable(
-                "dbo.SIDE_DISHs",
+                "dbo.SIDE_DISH",
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 64, fixedLength: true),
@@ -200,11 +200,11 @@ namespace FoodDelivery.Data.Migrations
                         MealId = c.String(maxLength: 64, fixedLength: true),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.MEALs", t => t.MealId)
+                .ForeignKey("dbo.MEAL", t => t.MealId)
                 .Index(t => t.MealId);
             
             CreateTable(
-                "dbo.ORDER_PROMOTIONs",
+                "dbo.ORDER_PROMOTION",
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 64, fixedLength: true),
@@ -223,53 +223,53 @@ namespace FoodDelivery.Data.Migrations
                         Description = c.String(maxLength: 2000),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.RESTAURANTs", t => t.RestaurantId)
+                .ForeignKey("dbo.RESTAURANT", t => t.RestaurantId)
                 .Index(t => t.RestaurantId);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.ORDER_PROMOTIONs", "RestaurantId", "dbo.RESTAURANTs");
-            DropForeignKey("dbo.ORDER_DETAILs", "SideDishId", "dbo.SIDE_DISHs");
-            DropForeignKey("dbo.SIDE_DISHs", "MealId", "dbo.MEALs");
-            DropForeignKey("dbo.ORDER_DETAILs", "OrderId", "dbo.ORDERs");
-            DropForeignKey("dbo.ORDERs", "RestaurantId", "dbo.RESTAURANTs");
-            DropForeignKey("dbo.ORDERs", "UserId", "dbo.APPLICATION_USERs");
-            DropForeignKey("dbo.ORDER_DETAILs", "MealId", "dbo.MEALs");
-            DropForeignKey("dbo.MEAL_PROMOTIONs", "RestaurantId", "dbo.RESTAURANTs");
-            DropForeignKey("dbo.MEAL_PROMOTIONs", "MealId", "dbo.MEALs");
-            DropForeignKey("dbo.MEALs", "RestaurantId", "dbo.RESTAURANTs");
-            DropForeignKey("dbo.MEALs", "MealCategoryId", "dbo.MEAL_CATEGORIESs");
-            DropForeignKey("dbo.IDENTITY_USER_ROLEs", "IdentityRoleId", "dbo.IDENTITY_ROLEs");
-            DropForeignKey("dbo.IDENTITY_USER_ROLEs", "ApplicationId", "dbo.APPLICATION_USERs");
-            DropForeignKey("dbo.IDENTITY_USER_CLAIMSs", "ApplicationId", "dbo.APPLICATION_USERs");
-            DropIndex("dbo.ORDER_PROMOTIONs", new[] { "RestaurantId" });
-            DropIndex("dbo.SIDE_DISHs", new[] { "MealId" });
-            DropIndex("dbo.ORDERs", new[] { "RestaurantId" });
-            DropIndex("dbo.ORDERs", new[] { "UserId" });
-            DropIndex("dbo.ORDER_DETAILs", new[] { "SideDishId" });
-            DropIndex("dbo.ORDER_DETAILs", new[] { "MealId" });
-            DropIndex("dbo.ORDER_DETAILs", new[] { "OrderId" });
-            DropIndex("dbo.MEALs", new[] { "MealCategoryId" });
-            DropIndex("dbo.MEALs", new[] { "RestaurantId" });
-            DropIndex("dbo.MEAL_PROMOTIONs", new[] { "MealId" });
-            DropIndex("dbo.MEAL_PROMOTIONs", new[] { "RestaurantId" });
-            DropIndex("dbo.IDENTITY_USER_ROLEs", new[] { "ApplicationId" });
-            DropIndex("dbo.IDENTITY_USER_ROLEs", new[] { "IdentityRoleId" });
-            DropIndex("dbo.IDENTITY_USER_CLAIMSs", new[] { "ApplicationId" });
-            DropTable("dbo.ORDER_PROMOTIONs");
-            DropTable("dbo.SIDE_DISHs");
-            DropTable("dbo.ORDERs");
-            DropTable("dbo.ORDER_DETAILs");
-            DropTable("dbo.RESTAURANTs");
-            DropTable("dbo.MEALs");
-            DropTable("dbo.MEAL_PROMOTIONs");
-            DropTable("dbo.MEAL_CATEGORIESs");
-            DropTable("dbo.IDENTITY_USER_ROLEs");
-            DropTable("dbo.IDENTITY_USER_CLAIMSs");
-            DropTable("dbo.IDENTITY_ROLEs");
-            DropTable("dbo.APPLICATION_USERs");
+            DropForeignKey("dbo.ORDER_PROMOTION", "RestaurantId", "dbo.RESTAURANT");
+            DropForeignKey("dbo.ORDER_DETAIL", "SideDishId", "dbo.SIDE_DISH");
+            DropForeignKey("dbo.SIDE_DISH", "MealId", "dbo.MEAL");
+            DropForeignKey("dbo.ORDER_DETAIL", "OrderId", "dbo.ORDER");
+            DropForeignKey("dbo.ORDER", "RestaurantId", "dbo.RESTAURANT");
+            DropForeignKey("dbo.ORDER", "UserId", "dbo.APPLICATION_USER");
+            DropForeignKey("dbo.ORDER_DETAIL", "MealId", "dbo.MEAL");
+            DropForeignKey("dbo.MEAL_PROMOTION", "RestaurantId", "dbo.RESTAURANT");
+            DropForeignKey("dbo.MEAL_PROMOTION", "MealId", "dbo.MEAL");
+            DropForeignKey("dbo.MEAL", "RestaurantId", "dbo.RESTAURANT");
+            DropForeignKey("dbo.MEAL", "MealCategoryId", "dbo.MEAL_CATEGORIES");
+            DropForeignKey("dbo.IDENTITY_USER_ROLE", "IdentityRoleId", "dbo.IDENTITY_ROLE");
+            DropForeignKey("dbo.IDENTITY_USER_ROLE", "ApplicationId", "dbo.APPLICATION_USER");
+            DropForeignKey("dbo.IDENTITY_USER_CLAIMS", "ApplicationId", "dbo.APPLICATION_USER");
+            DropIndex("dbo.ORDER_PROMOTION", new[] { "RestaurantId" });
+            DropIndex("dbo.SIDE_DISH", new[] { "MealId" });
+            DropIndex("dbo.ORDER", new[] { "RestaurantId" });
+            DropIndex("dbo.ORDER", new[] { "UserId" });
+            DropIndex("dbo.ORDER_DETAIL", new[] { "SideDishId" });
+            DropIndex("dbo.ORDER_DETAIL", new[] { "MealId" });
+            DropIndex("dbo.ORDER_DETAIL", new[] { "OrderId" });
+            DropIndex("dbo.MEAL", new[] { "MealCategoryId" });
+            DropIndex("dbo.MEAL", new[] { "RestaurantId" });
+            DropIndex("dbo.MEAL_PROMOTION", new[] { "MealId" });
+            DropIndex("dbo.MEAL_PROMOTION", new[] { "RestaurantId" });
+            DropIndex("dbo.IDENTITY_USER_ROLE", new[] { "ApplicationId" });
+            DropIndex("dbo.IDENTITY_USER_ROLE", new[] { "IdentityRoleId" });
+            DropIndex("dbo.IDENTITY_USER_CLAIMS", new[] { "ApplicationId" });
+            DropTable("dbo.ORDER_PROMOTION");
+            DropTable("dbo.SIDE_DISH");
+            DropTable("dbo.ORDER");
+            DropTable("dbo.ORDER_DETAIL");
+            DropTable("dbo.RESTAURANT");
+            DropTable("dbo.MEAL");
+            DropTable("dbo.MEAL_PROMOTION");
+            DropTable("dbo.MEAL_CATEGORIES");
+            DropTable("dbo.IDENTITY_USER_ROLE");
+            DropTable("dbo.IDENTITY_USER_CLAIMS");
+            DropTable("dbo.IDENTITY_ROLE");
+            DropTable("dbo.APPLICATION_USER");
         }
     }
 }

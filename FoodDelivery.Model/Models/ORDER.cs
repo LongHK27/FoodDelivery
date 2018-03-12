@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FoodDelivery.Model.Models
 {
-    [Table("ORDERs")]
+    [Table("ORDER")]
     public class ORDER
     {
         [Key]
@@ -65,11 +65,11 @@ namespace FoodDelivery.Model.Models
         public string RestaurantId { get; set; }
 
         [ForeignKey("UserId")]
-        public virtual APPLICATION_USER APPLICATION_USERs { get; set; }
+        public virtual APPLICATION_USER APPLICATION_USER { get; set; }
 
         [ForeignKey("RestaurantId")]
-        public virtual RESTAURANT RESTAURANTs { get; set; }
+        public virtual RESTAURANT RESTAURANT { get; set; }
 
-        public virtual IEnumerable<ORDER_DETAIL> ORDER_DETAILs { get; set; }
+        public virtual IEnumerable<ORDER_DETAIL> ORDER_DETAIL { get; set; }
     }
 }

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FoodDelivery.Model.Models
 {
-    [Table("IDENTITY_USER_ROLEs")]
+    [Table("IDENTITY_USER_ROLE")]
     public class IDENTITY_USER_ROLE
     {
         [Key]
@@ -17,9 +17,9 @@ namespace FoodDelivery.Model.Models
         public string ApplicationId { get; set; }
 
         [ForeignKey("IdentityRoleId")]
-        public virtual IDENTITY_ROLE IDENTITY_ROLEs { get; set; }
+        public virtual IDENTITY_ROLE IDENTITY_ROLE { get; set; }
 
         [ForeignKey("ApplicationId")]
-        public virtual APPLICATION_USER APPLICATION_USERs { get; set; }
+        public virtual APPLICATION_USER APPLICATION_USER { get; set; }
     }
 }

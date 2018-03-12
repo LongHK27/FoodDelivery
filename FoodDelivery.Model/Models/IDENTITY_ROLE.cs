@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FoodDelivery.Model.Models
 {
-    [Table("IDENTITY_ROLEs")]
+    [Table("IDENTITY_ROLE")]
     public class IDENTITY_ROLE
     {
         [Key]

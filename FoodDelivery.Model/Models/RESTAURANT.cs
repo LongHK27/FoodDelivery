@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FoodDelivery.Model.Models
 {
-    [Table("RESTAURANTs")]
+    [Table("RESTAURANT")]
     public class RESTAURANT : Auditable
     {
         [Key]
@@ -31,8 +31,8 @@ namespace FoodDelivery.Model.Models
         public string Location { get; set; }
 
         public virtual IEnumerable<MEAL> MEALs { get; set; }
-        public virtual IEnumerable<MEAL_PROMOTION> MEAL_PROMOTIONs { get; set; }
-        public virtual IEnumerable<ORDER_PROMOTION> ODER_PROMOTIONs { get; set; }
+        public virtual IEnumerable<MEAL_PROMOTION> MEAL_PROMOTION { get; set; }
+        public virtual IEnumerable<ORDER_PROMOTION> ODER_PROMOTION { get; set; }
         public virtual IEnumerable<ORDER> ODERs { get; set; }
     }
 }

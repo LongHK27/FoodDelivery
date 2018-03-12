@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FoodDelivery.Model.Models
 {
-    [Table("APPLICATION_USERs")]
+    [Table("APPLICATION_USER")]
     public class APPLICATION_USER
     {
         [Key]

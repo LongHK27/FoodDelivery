@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FoodDelivery.Model.Models
 {
-    [Table("IDENTITY_USER_CLAIMSs")]
+    [Table("IDENTITY_USER_CLAIMS")]
     public class IDENTITY_USER_CLAIMS
     {
         [Key]
@@ -24,6 +24,6 @@ namespace FoodDelivery.Model.Models
         public string ApplicationId { get; set; }
 
         [ForeignKey("ApplicationId")]
-        public virtual APPLICATION_USER APPLICATION_USERs { get; set; }
+        public virtual APPLICATION_USER APPLICATION_USER { get; set; }
     }
 }
