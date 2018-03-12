@@ -1,11 +1,12 @@
-﻿using System;
+﻿using FoodDelivery.Model.Abstract;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FoodDelivery.Model.Models
 {
     [Table("MEAL_PROMOTIONs")]
-    public class MEAL_PROMOTION
+    public class MEAL_PROMOTION : Auditable
     {
         [Key]
         [MaxLength(64)]
