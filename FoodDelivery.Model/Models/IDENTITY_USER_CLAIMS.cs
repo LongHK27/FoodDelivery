@@ -19,7 +19,6 @@ namespace FoodDelivery.Model.Models
         [Column(TypeName = "nvarchar")]
         public string ClaimValue { get; set; }
 
-        [Required]
         [MaxLength(64)]
         [Column(TypeName = "nchar")]
         public string ApplicationId { get; set; }

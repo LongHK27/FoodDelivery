@@ -29,7 +29,6 @@ namespace FoodDelivery.Model.Models
         [Column(TypeName = "nvarchar")]
         public string ComboList { get; set; }
 
-        [Required]
         [MaxLength(64)]
         [Column(TypeName = "nchar")]
         public string RestaurantId { get; set; }

@@ -60,7 +60,6 @@ namespace FoodDelivery.Model.Models
         [Column(TypeName = "nchar")]
         public string UserId { get; set; }
 
-        [Required]
         [MaxLength(64)]
         [Column(TypeName = "nchar")]
         public string RestaurantId { get; set; }

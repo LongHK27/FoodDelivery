@@ -17,17 +17,14 @@ namespace FoodDelivery.Model.Models
         [Required]
         public int Price { get; set; }
 
-        [Required]
         [MaxLength(64)]
         [Column(TypeName = "nchar")]
         public string OrderId { get; set; }
 
-        [Required]
         [MaxLength(64)]
         [Column(TypeName = "nchar")]
         public string MealId { get; set; }
 
-        [Required]
         [MaxLength(64)]
         [Column(TypeName = "nchar")]
         public string SideDishId { get; set; }

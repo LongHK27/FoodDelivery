@@ -22,7 +22,6 @@ namespace FoodDelivery.Model.Models
         [Required]
         public int Status { get; set; }
 
-        [Required]
         [MaxLength(64)]
         [Column(TypeName = "nchar")]
         public string MealId { get; set; }

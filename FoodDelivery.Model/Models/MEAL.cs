@@ -27,14 +27,12 @@ namespace FoodDelivery.Model.Models
         [Column(TypeName = "nchar")]
         public string UpdateBy { get; set; }
 
-        [Required]
         [MaxLength(64)]
-        [Column(TypeName = "nchar")]
+        [Column(TypeName = "nchar", Order = 1)]
         public string RestaurantId { get; set; }
 
-        [Required]
         [MaxLength(64)]
-        [Column(TypeName = "nchar")]
+        [Column(TypeName = "nchar", Order = 2)]
         public string MealCategoryId { get; set; }
 
         [ForeignKey("MealCategoryId")]

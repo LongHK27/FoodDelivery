@@ -30,6 +30,7 @@ namespace FoodDelivery.Model.Models
         [Column(TypeName = "nvarchar")]
         public string Location { get; set; }
 
+        public virtual IEnumerable<MEAL> MEALs { get; set; }
         public virtual IEnumerable<MEAL_PROMOTION> MEAL_PROMOTIONs { get; set; }
         public virtual IEnumerable<ORDER_PROMOTION> ODER_PROMOTIONs { get; set; }
         public virtual IEnumerable<ORDER> ODERs { get; set; }
