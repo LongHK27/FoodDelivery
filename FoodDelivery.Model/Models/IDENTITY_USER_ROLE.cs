@@ -8,10 +8,12 @@ namespace FoodDelivery.Model.Models
     {
         [Key]
         [MaxLength(64)]
+        [Column(TypeName = "nchar")]
         public string IdentityRoleId { get; set; }
 
         [Key]
         [MaxLength(64)]
+        [Column(TypeName = "nchar")]
         public string ApplicationId { get; set; }
 
         [ForeignKey("IdentityRoleId")]

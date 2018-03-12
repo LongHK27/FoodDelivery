@@ -10,24 +10,30 @@ namespace FoodDelivery.Model.Models
     {
         [Key]
         [MaxLength(64)]
+        [Column(TypeName = "nchar")]
         public string Id { get; set; }
 
         [Required]
         [MaxLength(100)]
+        [Column(TypeName = "nvarchar")]
         public string CustomerName { get; set; }
 
         [MaxLength(100)]
+        [Column(TypeName = "nvarchar")]
         public string CustomerEmail { get; set; }
 
         [Required]
         [MaxLength(200)]
+        [Column(TypeName = "nvarchar")]
         public string CustomerAddress { get; set; }
 
         [Required]
         [MaxLength(20)]
+        [Column(TypeName = "nvarchar")]
         public string CustomerMobile { get; set; }
 
         [MaxLength(1000)]
+        [Column(TypeName = "nvarchar")]
         public string CustomerMessage { get; set; }
 
         [Required]
@@ -38,6 +44,7 @@ namespace FoodDelivery.Model.Models
 
         [Required]
         [MaxLength(50)]
+        [Column(TypeName = "nvarchar")]
         public string PaymentMenthod { get; set; }
 
         [Required]
@@ -50,10 +57,12 @@ namespace FoodDelivery.Model.Models
         public int Status { get; set; }
 
         [MaxLength(64)]
+        [Column(TypeName = "nchar")]
         public string UserId { get; set; }
 
         [Required]
         [MaxLength(64)]
+        [Column(TypeName = "nchar")]
         public string RestaurantId { get; set; }
 
         [ForeignKey("UserId")]

@@ -11,25 +11,30 @@ namespace FoodDelivery.Model.Models
     {
         [Key]
         [MaxLength(64)]
+        [Column(TypeName = "nchar")]
         public string Id { get; set; }
 
         [Required]
         public int Price { get; set; }
 
         [MaxLength(2000)]
+        [Column(TypeName = "nvarchar")]
         public string Content { get; set; }
 
         public DateTime UpdateDate { get; set; }
 
         [MaxLength(64)]
+        [Column(TypeName = "nchar")]
         public string UpdateBy { get; set; }
 
         [Required]
         [MaxLength(64)]
+        [Column(TypeName = "nchar")]
         public string RestaurantId { get; set; }
 
         [Required]
         [MaxLength(64)]
+        [Column(TypeName = "nchar")]
         public string MealCategoryId { get; set; }
 
         [ForeignKey("MealCategoryId")]

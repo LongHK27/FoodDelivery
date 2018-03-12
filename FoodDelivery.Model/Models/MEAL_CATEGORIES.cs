@@ -10,6 +10,7 @@ namespace FoodDelivery.Model.Models
     {
         [Key]
         [MaxLength(64)]
+        [Column(TypeName = "nchar")]
         public string Id { get; set; }
 
         public int Display { get; set; }

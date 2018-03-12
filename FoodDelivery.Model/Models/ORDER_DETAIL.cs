@@ -8,6 +8,7 @@ namespace FoodDelivery.Model.Models
     {
         [Key]
         [MaxLength(64)]
+        [Column(TypeName = "nchar")]
         public string Id { get; set; }
 
         [Required]
@@ -18,14 +19,17 @@ namespace FoodDelivery.Model.Models
 
         [Required]
         [MaxLength(64)]
+        [Column(TypeName = "nchar")]
         public string OrderId { get; set; }
 
         [Required]
         [MaxLength(64)]
+        [Column(TypeName = "nchar")]
         public string MealId { get; set; }
 
         [Required]
         [MaxLength(64)]
+        [Column(TypeName = "nchar")]
         public string SideDishId { get; set; }
 
         [ForeignKey("MealId")]

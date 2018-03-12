@@ -9,10 +9,12 @@ namespace FoodDelivery.Model.Models
     {
         [Key]
         [MaxLength(64)]
+        [Column(TypeName = "nchar")]
         public string Id { get; set; }
 
         [Required]
         [MaxLength(100)]
+        [Column(TypeName = "nvarchar")]
         public string Name { get; set; }
 
         public virtual IEnumerable<IDENTITY_USER_ROLE> IdentityUserRoles { get; set; }

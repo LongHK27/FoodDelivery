@@ -11,19 +11,23 @@ namespace FoodDelivery.Model.Models
     {
         [Key]
         [MaxLength(64)]
+        [Column(TypeName = "nchar")]
         public string Id { get; set; }
 
         public DateTime UpdateDate { get; set; }
 
         [MaxLength(64)]
+        [Column(TypeName = "nchar")]
         public string UpdateBy { get; set; }
 
         [Required]
         [MaxLength(200)]
+        [Column(TypeName = "nvarchar")]
         public string Address { get; set; }
 
         [Required]
         [MaxLength(50)]
+        [Column(TypeName = "nvarchar")]
         public string Location { get; set; }
 
         public virtual IEnumerable<MEAL_PROMOTION> MEAL_PROMOTIONs { get; set; }

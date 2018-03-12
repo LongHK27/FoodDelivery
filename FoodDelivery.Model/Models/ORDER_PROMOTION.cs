@@ -10,6 +10,7 @@ namespace FoodDelivery.Model.Models
     {
         [Key]
         [MaxLength(64)]
+        [Column(TypeName = "nchar")]
         public string Id { get; set; }
 
         [Required]
@@ -25,10 +26,12 @@ namespace FoodDelivery.Model.Models
         public DateTime EndDate { get; set; }
 
         [MaxLength(200)]
+        [Column(TypeName = "nvarchar")]
         public string ComboList { get; set; }
 
         [Required]
         [MaxLength(64)]
+        [Column(TypeName = "nchar")]
         public string RestaurantId { get; set; }
 
         [ForeignKey("RestaurantId")]

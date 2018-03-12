@@ -10,29 +10,37 @@ namespace FoodDelivery.Model.Models
     {
         [Key]
         [MaxLength(64)]
+        [Column(TypeName="nchar")]
         public string Id { get; set; }
 
         [MaxLength(100)]
+        [Column(TypeName = "nvarchar")]
         public string FullName { get; set; }
 
         public DateTime? Birthday { get; set; }
 
         [MaxLength(100)]
+        [Column(TypeName = "nvarchar")]
         public string Email { get; set; }
 
         [MaxLength(20)]
+        [Column(TypeName = "nvarchar")]
         public string Phone { set; get; }
 
         [MaxLength(200)]
+        [Column(TypeName = "nvarchar")]
         public string Address { get; set; }
 
         [MaxLength(100)]
+        [Column(TypeName = "nvarchar")]
         public string Username { get; set; }
 
         [MaxLength(20)]
+        [Column(TypeName = "nvarchar")]
         public string Password { get; set; }
 
         [MaxLength(50)]
+        [Column(TypeName = "nvarchar")]
         public string SercurityStamp { get; set; }
 
         [Required]
