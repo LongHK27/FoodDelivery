@@ -64,8 +64,18 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FoodDeliveryDbContext.cs" />
+    <Compile Include="Repositories\ApplicationUserRepository.cs" />
+    <Compile Include="Repositories\IdentityRoleRepository.cs" />
+    <Compile Include="Repositories\IdentityUserClaimRepository.cs" />
+    <Compile Include="Repositories\IdentityUserRoleRepository.cs" />
     <Compile Include="Repositories\MealCategoryRepository.cs" />
+    <Compile Include="Repositories\MealPromotionRepository.cs" />
     <Compile Include="Repositories\MealRepository.cs" />
+    <Compile Include="Repositories\OrderDetailRepository.cs" />
+    <Compile Include="Repositories\OrderPromotionRepository.cs" />
+    <Compile Include="Repositories\OrderRepository.cs" />
+    <Compile Include="Repositories\RestaurantRepository.cs" />
+    <Compile Include="Repositories\SideDishRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
